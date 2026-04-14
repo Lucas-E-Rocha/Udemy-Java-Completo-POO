@@ -19,12 +19,12 @@ public class Program {
 		System.out.print("Tax: ");
 		employee.tax = sc.nextDouble();
 		
-		System.out.printf("Employee: "+employee.name+", $ %.2f%n",employee.NetSalary());
+		System.out.printf("Employee: "+employee.name+", $ %.2f%n",employee.netSalary());
 		
 		System.out.print("Which percentage to increase salary? ");
-		employee.IncreaseSalary(sc.nextDouble());
+		employee.increaseSalary(sc.nextDouble());
 		
-		System.out.printf("Updated data: "+employee.name+", $ %.2f%n",employee.NetSalary());
+		System.out.printf("Updated data: "+employee.name+", $ %.2f%n",employee.netSalary());
 
 		sc.close();
 	}

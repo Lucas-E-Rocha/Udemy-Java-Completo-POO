@@ -5,11 +5,11 @@ public class Employee {
 	public double grossSalary;
 	public double tax;
 	
-	public double NetSalary() {
+	public double netSalary() {
 		return grossSalary - tax;
 	}
 	
-	public void IncreaseSalary(double percentage) {
+	public void increaseSalary(double percentage) {
 		grossSalary += grossSalary*(percentage/100);
 	}
 }

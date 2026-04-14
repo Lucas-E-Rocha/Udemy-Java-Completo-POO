@@ -18,9 +18,9 @@ public class Programa {
 		System.out.printf("Area: %.2f%n"
 						+ "Perimeter: %.2f%n"
 						+ "Diagonal: %.2f%n"
-						,r.Area()
-						,r.Perimeter()
-						,r.Diagonal());
+						,r.area()
+						,r.perimeter()
+						,r.diagonal());
 		
 		sc.close();
 	}
