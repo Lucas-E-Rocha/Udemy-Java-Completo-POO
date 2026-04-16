@@ -6,8 +6,9 @@ import java.util.Scanner;
 public class CasosDeTeste {
 	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
-		int nCasos;
 		Scanner sc = new Scanner(System.in);
+
+		int nCasos;
 
 		System.out.println("Insira quantos casos de testes serão realizados:");
 		nCasos = sc.nextInt();

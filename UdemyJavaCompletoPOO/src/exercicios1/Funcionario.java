@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class Funcionario {
 	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
+		
 		int id,horasTrab;
 		double valorHora,salario;
 		

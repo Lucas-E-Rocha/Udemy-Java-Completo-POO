@@ -7,9 +7,9 @@ import exercicios5.Ex1.entidades.Rectangle;
 
 public class Programa {
 	public static void main(String[] args) {
+		Locale.setDefault(Locale.US);
 		Rectangle r = new Rectangle();
 		Scanner sc = new Scanner(System.in);
-		Locale.setDefault(Locale.US);
 		
 		System.out.println("Enter rectangle width and height:");
 		r.width = sc.nextDouble();

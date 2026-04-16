@@ -1,11 +1,14 @@
 package exercicios4;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Divisao {
 	public static void main(String[] args) {
-		int nPares;
+		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
+		
+		int nPares;
 		
 		System.out.println("Insira quantas divisões serão realizadas:");
 		nPares = sc.nextInt();

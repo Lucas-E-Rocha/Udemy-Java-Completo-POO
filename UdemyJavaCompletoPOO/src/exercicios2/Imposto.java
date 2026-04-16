@@ -6,8 +6,9 @@ import java.util.Scanner;
 public class Imposto {
 	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
-		double salario;
 		Scanner sc = new Scanner(System.in);
+		
+		double salario;
 		
 		System.out.println("Insira seu salário:");
 		salario = sc.nextDouble();

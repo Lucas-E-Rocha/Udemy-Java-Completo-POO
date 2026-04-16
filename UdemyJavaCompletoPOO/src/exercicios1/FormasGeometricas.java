@@ -5,9 +5,10 @@ import java.util.Scanner;
 public class FormasGeometricas {
 	public static void main(String[] args) {
 		Locale.setDefault(Locale.US);
+		Scanner sc = new Scanner(System.in);
+		
 		double A,B,C;
 		double areaTriangulo,areaCirculo,areaTrapezio,areaQuadrado,areaRetangulo;
-		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("Insira o valor da face A");
 		A = sc.nextDouble();

@@ -1,12 +1,15 @@
 package exercicios2;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class PosicaoQuadrante {
 	public static void main(String[] args) {
-		double x,y;
+		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
+		double x,y;
+
 		System.out.println("Insira a coordenada x:");
 		x = sc.nextDouble();
 		System.out.println("Insira a coordenada y:");

@@ -1,12 +1,15 @@
 package exercicios2;
 
+import java.util.Locale;
 import java.util.Scanner;
 
 public class Intervalo {
 	public static void main(String[] args) {
-		double valor;
+		Locale.setDefault(Locale.US);
 		Scanner sc = new Scanner(System.in);
 		
+		double valor;
+
 		valor = sc.nextDouble();
 		
 		if(valor >= 0 && valor <= 25) {
