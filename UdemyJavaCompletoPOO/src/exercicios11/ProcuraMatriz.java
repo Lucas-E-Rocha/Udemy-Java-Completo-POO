@@ -32,7 +32,7 @@ public class ProcuraMatriz {
 					if (i - 1 >= 0) {
 						System.out.println("Up: " + matriz[i - 1][j]);
 					}
-					if (i - 1 < n) {
+					if (i + 1 < n) {
 						System.out.println("Down: " + matriz[i + 1][j]);
 					}
 				}
