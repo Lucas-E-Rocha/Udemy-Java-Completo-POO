@@ -58,5 +58,7 @@ public class Aplicativo {
 		for (Product product : products) {
 			System.out.println(product.priceTag());
 		}
+		
+		sc.close();
 	}
 }
