@@ -1,4 +1,4 @@
-package exercicios16;
+package exercicios16.app;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
