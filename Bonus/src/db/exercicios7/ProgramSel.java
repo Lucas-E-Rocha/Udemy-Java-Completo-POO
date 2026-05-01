@@ -8,7 +8,7 @@ import db.exercicios7.model.dao.SellerDao;
 import db.exercicios7.model.entities.Department;
 import db.exercicios7.model.entities.Seller;
 
-public class Program {
+public class ProgramSel {
 	public static void main(String[] args) {
 
 		SellerDao sellerDao = DaoFactory.createSellerDao();
@@ -27,8 +27,18 @@ public class Program {
 		listSellersAll.forEach(System.out::println);
 
 		System.out.println("\n=== Test 4 - Seller Insert ===");
-		Seller sellerInsert = new Seller(null, "Greg", "greg@gmail.com", new Date(), 4000.0, department);
+		Seller sellerInsert = new Seller(null, "Daves", "Daves@gmail.com", new Date(), 4000.0, department);
 		sellerDao.insert(sellerInsert);
 		System.out.println("Inserted! New id = " + sellerInsert.getId());
+		
+		System.out.println("\n=== Test 5 - Seller update ===");
+		Seller sellerUpdate = sellerDao.findById(1);
+		sellerUpdate.setName("Martha Waine");
+		sellerDao.update(sellerUpdate);
+		System.out.println("Updated!");
+		
+		System.out.println("\n=== Test 6 - Seller deleteById ===");
+		sellerDao.deleteById(22);
+		System.out.println("Deleted!");
 	}
 }
