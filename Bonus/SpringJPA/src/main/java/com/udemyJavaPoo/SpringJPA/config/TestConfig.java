@@ -1,20 +1,10 @@
 package com.udemyJavaPoo.SpringJPA.config;
 
-import java.time.Instant;
-import java.util.Arrays;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Profile;
 
-import com.udemyJavaPoo.SpringJPA.entities.Category;
-import com.udemyJavaPoo.SpringJPA.entities.Order;
-import com.udemyJavaPoo.SpringJPA.entities.OrderItem;
-import com.udemyJavaPoo.SpringJPA.entities.Payment;
-import com.udemyJavaPoo.SpringJPA.entities.Product;
-import com.udemyJavaPoo.SpringJPA.entities.User;
-import com.udemyJavaPoo.SpringJPA.entities.enums.OrderStatus;
 import com.udemyJavaPoo.SpringJPA.respositories.CategoryRepository;
 import com.udemyJavaPoo.SpringJPA.respositories.OrderItemRepository;
 import com.udemyJavaPoo.SpringJPA.respositories.OrderRepository;
@@ -42,7 +32,8 @@ public class TestConfig implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		User u1 = new User(null, "Maria Brown", "maria@gmail.com", "988888888", "123456");
+		
+		/*User u1 = new User(null, "Maria Brown", "maria@gmail.com", "988888888", "123456");
 		User u2 = new User(null, "Alex Green", "alex@gmail.com", "977777777", "123456");
 
 		userRepository.saveAll(Arrays.asList(u1, u2));
@@ -83,7 +74,7 @@ public class TestConfig implements CommandLineRunner {
 		Payment pay1 = new Payment(null, Instant.parse("2019-06-20T21:53:07Z"), o1);
 		o1.setPayment(pay1);
 
-		orderRepository.save(o1);
+		orderRepository.save(o1); */
 	}
 
 }
