@@ -5,7 +5,7 @@ import boardgame.Position;
 import chess.ChessPiece;
 import chess.Color;
 
-public class Knight extends ChessPiece{
+public class Knight extends ChessPiece {
 
 	public Knight(Board board, Color color) {
 		super(board, color);
@@ -16,55 +16,52 @@ public class Knight extends ChessPiece{
 		return "N";
 	}
 
-
 	private boolean canMove(Position p) {
-		return getBoard().positionExists(p) && !getBoard().thereisAPiece(p);
+		return getBoard().positionExists(p) && (getBoard().piece(p) == null || isThereOpponentPiece(p));
 	}
 
-	private boolean canMoveOpponentExists(Position p) {
-		return getBoard().positionExists(p) && isThereOpponentPiece(p);
-	}
-	
 	@Override
 	public boolean[][] possibleMoves() {
 		boolean[][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
-		// up
-		Position p = new Position(position.getRow() - 1, position.getColumn());
-		while (canMove(p)) {
-			mat[p.getRow()][p.getColumn()] = true;
-			p.setRow(p.getRow() - 1);
-		}
-		if (canMoveOpponentExists(p)) {
+		Position p = new Position(position.getRow(), position.getColumn());
+		// up left
+		p = new Position(position.getRow() - 2, position.getColumn() - 1);
+		if (canMove(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
-
-		// down
-		p = new Position(position.getRow() + 1, position.getColumn());
-		while (canMove(p)) {
-			mat[p.getRow()][p.getColumn()] = true;
-			p.setRow(p.getRow() + 1);
-		}
-		if (canMoveOpponentExists(p)) {
+		// left up
+		p = new Position(position.getRow() - 1, position.getColumn() - 2);
+		if (canMove(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
-
-		// left
-		p = new Position(position.getRow(), position.getColumn() - 1);
-		while (canMove(p)) {
-			mat[p.getRow()][p.getColumn()] = true;
-			p.setColumn(p.getColumn() - 1);
-		}
-		if (canMoveOpponentExists(p)) {
+		// up right
+		p = new Position(position.getRow() - 2, position.getColumn() + 1);
+		if (canMove(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
-
-		// right
-		p = new Position(position.getRow(), position.getColumn() + 1);
-		while (canMove(p)) {
+		// right up
+		p = new Position(position.getRow() - 1, position.getColumn() + 2);
+		if (canMove(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
-			p.setColumn(p.getColumn() + 1);
 		}
-		if (canMoveOpponentExists(p)) {
+		// down left
+		p = new Position(position.getRow() + 2, position.getColumn() - 1);
+		if (canMove(p)) {
+			mat[p.getRow()][p.getColumn()] = true;
+		}
+		// left down
+		p = new Position(position.getRow() + 1, position.getColumn() - 2);
+		if (canMove(p)) {
+			mat[p.getRow()][p.getColumn()] = true;
+		}
+		// down right
+		p = new Position(position.getRow() + 2, position.getColumn() + 1);
+		if (canMove(p)) {
+			mat[p.getRow()][p.getColumn()] = true;
+		}
+		// right down
+		p = new Position(position.getRow() + 1, position.getColumn() + 2);
+		if (canMove(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 		return mat;

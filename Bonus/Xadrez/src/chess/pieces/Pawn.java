@@ -5,7 +5,7 @@ import boardgame.Position;
 import chess.ChessPiece;
 import chess.Color;
 
-public class Pawn extends ChessPiece{
+public class Pawn extends ChessPiece {
 
 	public Pawn(Board board, Color color) {
 		super(board, color);
@@ -16,7 +16,6 @@ public class Pawn extends ChessPiece{
 		return "P";
 	}
 
-
 	private boolean canMove(Position p) {
 		return getBoard().positionExists(p) && !getBoard().thereisAPiece(p);
 	}
@@ -24,48 +23,60 @@ public class Pawn extends ChessPiece{
 	private boolean canMoveOpponentExists(Position p) {
 		return getBoard().positionExists(p) && isThereOpponentPiece(p);
 	}
-	
+
 	@Override
 	public boolean[][] possibleMoves() {
 		boolean[][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
-		// up
-		Position p = new Position(position.getRow() - 1, position.getColumn());
-		while (canMove(p)) {
-			mat[p.getRow()][p.getColumn()] = true;
-			p.setRow(p.getRow() - 1);
+		Position p = new Position(position.getRow(), position.getColumn());
+		// White
+		if (getColor() == Color.WHITE) {
+			// Up 1
+			p = new Position(position.getRow() - 1, position.getColumn());
+			if (canMove(p)) {
+				mat[p.getRow()][p.getColumn()] = true;
+				// Up 2
+				if (getMoveCount() == 0) {
+					p = new Position(position.getRow() - 2, position.getColumn());
+					if (canMove(p)) {
+						mat[p.getRow()][p.getColumn()] = true;
+					}
+				}
+			}
+			// Diagonal left
+			p = new Position(position.getRow() - 1, position.getColumn() - 1);
+			if (canMoveOpponentExists(p)) {
+				mat[p.getRow()][p.getColumn()] = true;
+			}
+			// Diagonal Right
+			p = new Position(position.getRow() - 1, position.getColumn() + 1);
+			if (canMoveOpponentExists(p)) {
+				mat[p.getRow()][p.getColumn()] = true;
+			}
 		}
-		if (canMoveOpponentExists(p)) {
-			mat[p.getRow()][p.getColumn()] = true;
-		}
-
-		// down
-		p = new Position(position.getRow() + 1, position.getColumn());
-		while (canMove(p)) {
-			mat[p.getRow()][p.getColumn()] = true;
-			p.setRow(p.getRow() + 1);
-		}
-		if (canMoveOpponentExists(p)) {
-			mat[p.getRow()][p.getColumn()] = true;
-		}
-
-		// left
-		p = new Position(position.getRow(), position.getColumn() - 1);
-		while (canMove(p)) {
-			mat[p.getRow()][p.getColumn()] = true;
-			p.setColumn(p.getColumn() - 1);
-		}
-		if (canMoveOpponentExists(p)) {
-			mat[p.getRow()][p.getColumn()] = true;
-		}
-
-		// right
-		p = new Position(position.getRow(), position.getColumn() + 1);
-		while (canMove(p)) {
-			mat[p.getRow()][p.getColumn()] = true;
-			p.setColumn(p.getColumn() + 1);
-		}
-		if (canMoveOpponentExists(p)) {
-			mat[p.getRow()][p.getColumn()] = true;
+		// Black
+		else {
+			// Up 1
+			p = new Position(position.getRow() + 1, position.getColumn());
+			if (canMove(p)) {
+				mat[p.getRow()][p.getColumn()] = true;
+				// Up 2
+				if (getMoveCount() == 0) {
+					p = new Position(position.getRow() + 2, position.getColumn());
+					if (canMove(p)) {
+						mat[p.getRow()][p.getColumn()] = true;
+					}
+				}
+			}
+			// Diagonal left
+			p = new Position(position.getRow() + 1, position.getColumn() - 1);
+			if (canMoveOpponentExists(p)) {
+				mat[p.getRow()][p.getColumn()] = true;
+			}
+			// Diagonal Right
+			p = new Position(position.getRow() + 1, position.getColumn() + 1);
+			if (canMoveOpponentExists(p)) {
+				mat[p.getRow()][p.getColumn()] = true;
+			}
 		}
 		return mat;
 	}

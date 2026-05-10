@@ -64,12 +64,12 @@ public class ChessMatch {
 
 		check = testCheck(opponent(currentPlayer)) ? true : false;
 
-		if(testCheckMate(opponent(currentPlayer))) {
+		if (testCheckMate(opponent(currentPlayer))) {
 			checkMate = true;
 		} else {
 			nextTurn();
 		}
-		
+
 		return (ChessPiece) capturedPiece;
 	}
 
@@ -81,7 +81,8 @@ public class ChessMatch {
 	}
 
 	private Piece makeMove(Position source, Position target) {
-		Piece piece = board.removePiece(source);
+		ChessPiece piece = (ChessPiece) board.removePiece(source);
+		piece.increaseMoveCount();
 		Piece capturedPiece = board.removePiece(target);
 		if (capturedPiece != null) {
 			piecesOnTheBoard.remove(capturedPiece);
@@ -92,7 +93,8 @@ public class ChessMatch {
 	}
 
 	private void undoMove(Position source, Position target, Piece capturedPiece) {
-		Piece piece = board.removePiece(target);
+		ChessPiece piece = (ChessPiece) board.removePiece(target);
+		piece.decreaseMoveCount();
 		board.placePiece(piece, source);
 		if (capturedPiece != null) {
 			board.placePiece(capturedPiece, target);
@@ -163,7 +165,7 @@ public class ChessMatch {
 						Piece capturedPiece = makeMove(source, target);
 						boolean testCheck = testCheck(color);
 						undoMove(source, target, capturedPiece);
-						if(!testCheck) {
+						if (!testCheck) {
 							return false;
 						}
 					}
