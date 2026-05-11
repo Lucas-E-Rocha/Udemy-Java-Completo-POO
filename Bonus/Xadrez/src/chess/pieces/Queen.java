@@ -96,7 +96,7 @@ public class Queen extends ChessPiece {
 			mat[p.getRow()][p.getColumn()] = true;
 		}
 		// Diagonal down right
-		p = new Position(position.getRow() - 1, position.getColumn() + 1);
+		p = new Position(position.getRow() + 1, position.getColumn() + 1);
 		while (canMove(p)) {
 			mat[p.getRow()][p.getColumn()] = true;
 			p.setValues(p.getRow() + 1, p.getColumn() + 1);
