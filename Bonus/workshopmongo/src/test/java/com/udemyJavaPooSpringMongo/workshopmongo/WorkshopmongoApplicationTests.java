@@ -1,4 +1,4 @@
-package com.udemyJavaPooSpringMongoDB.workshopmongo;
+package com.udemyJavaPooSpringMongo.workshopmongo;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
